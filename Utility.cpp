@@ -6,7 +6,6 @@
 #include <cctype>
 using namespace std;
 
-// removes spaces at the beginning and the end of a text
 static string trim(const string& text) {
     size_t start = text.find_first_not_of(" \t\r\n");
     if (start == string::npos) {
@@ -20,14 +19,14 @@ int readInt(const string& prompt, int min, int max) {
     while (true) {
         cout << prompt;
         string line;
-        if (!getline(cin, line)) {   // input has ended
+        if (!getline(cin, line)) { 
             cout << endl;
             return min;
         }
         stringstream ss(line);
         int value;
         char extra;
-        // accept only one whole number inside the range
+        
         if (ss >> value && !(ss >> extra) && value >= min && value <= max) {
             return value;
         }
@@ -39,7 +38,7 @@ double readDouble(const string& prompt) {
     while (true) {
         cout << prompt;
         string line;
-        if (!getline(cin, line)) {   // input has ended
+        if (!getline(cin, line)) {   
             cout << endl;
             return 1.0;
         }
@@ -56,7 +55,7 @@ double readDouble(const string& prompt) {
 string readLine(const string& prompt) {
     cout << prompt;
     string line;
-    if (!getline(cin, line)) {   // input has ended
+    if (!getline(cin, line)) {  
         cout << endl;
         return "";
     }
@@ -66,7 +65,7 @@ string readLine(const string& prompt) {
 bool readYesNo(const string& prompt) {
     while (true) {
         string answer = toLower(readLine(prompt + " (y/n): "));
-        if (!cin) {   // input has ended
+        if (!cin) {   
             return false;
         }
         if (answer == "y" || answer == "yes") {
@@ -97,11 +96,11 @@ void printRecipeList(const vector<Recipe>& list) {
 }
 
 void viewRecipe(const Recipe& recipe) {
-    cout << endl;
-    recipe.display();
-    int people = readInt("Print this recipe for how many people? (0 = no): ", 0, 100);
-    if (people > 0) {
-        cout << endl;
-        recipe.print(people);
+    int people = readInt("How many people? (original: " + to_string(recipe.getServings())
+                         + ", 0 = cancel): ", 0, 100);
+    if (people == 0) {
+        return;
     }
+    cout << endl;
+    recipe.print(people);
 }

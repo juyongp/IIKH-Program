@@ -6,7 +6,6 @@
 #include <algorithm>
 using namespace std;
 
-// compare functions used by std::sort
 static bool compareByName(const Recipe& a, const Recipe& b) {
     return toLower(a.getName()) < toLower(b.getName());
 }
@@ -15,7 +14,7 @@ static bool compareByPreparationTime(const Recipe& a, const Recipe& b) {
     if (a.getPreparationTime() != b.getPreparationTime()) {
         return a.getPreparationTime() < b.getPreparationTime();
     }
-    return compareByName(a, b);   // same time -> alphabetical
+    return compareByName(a, b);   
 }
 
 RecipeDatabase::RecipeDatabase() {
@@ -145,7 +144,7 @@ void RecipeDatabase::editRecipe() {
     int choice = readInt("Select: ", 0, 2);
 
     if (choice == 1) {
-        Recipe copy = *selected;   // edit a copy first
+        Recipe copy = *selected;   
         copy.edit();
         Recipe* sameName = findRecipe(copy.getName());
         if (sameName != nullptr && sameName != selected) {

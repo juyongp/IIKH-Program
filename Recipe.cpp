@@ -146,15 +146,12 @@ void Recipe::edit() {
 
 void Recipe::display() const {
     print(servings);
-    if (annotation != "") {
-        cout << "Note: " << annotation << endl;
-    }
 }
 
 void Recipe::print(int people) const {
     cout << "========== " << name << " ==========" << endl;
     cout << "For " << people << (people == 1 ? " person" : " people") << endl;
-    // the time is an estimate for the original recipe, so it is not scaled
+    // the time of estimate for the original recipe
     cout << "Expected preparation time: about " << preparationTime << " min";
     if (people != servings) {
         cout << " (for " << servings << (servings == 1 ? " serving)" : " servings)");
@@ -178,5 +175,8 @@ void Recipe::print(int people) const {
     }
     for (size_t i = 0; i < steps.size(); i++) {
         cout << "  " << (i + 1) << ". " << steps[i] << endl;
+    }
+    if (annotation != "") {
+        cout << "Note: " << annotation << endl;
     }
 }

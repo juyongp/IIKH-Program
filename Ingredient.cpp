@@ -24,7 +24,7 @@ string Ingredient::getUnit() const { return unit; }
 void Ingredient::setAmount(double amount) { this->amount = amount; }
 
 void Ingredient::display() const {
-    double rounded = floor(amount * 100 + 0.5) / 100;   // round to 2 decimal places
+    double rounded = floor(amount * 100 + 0.5) / 100;
     cout << rounded << " ";
     if (unit != "") {
         cout << unit << " ";

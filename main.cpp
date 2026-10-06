@@ -1,10 +1,9 @@
 // main.cpp
 // IIKH - Interactive Intelligent Kitchen Helper
-// Creates the components and starts the program.
 
 #include "Greeter.h"
 
-// puts a few recipes into the database so the program can be tried right away
+// puts a few recipes into the database
 void addSampleRecipes(RecipeDatabase& database) {
     Recipe friedRice("Kimchi fried rice", 1, 10);
     friedRice.addIngredient(Ingredient("rice", 1, "bowl"));

@@ -1,5 +1,5 @@
 // Ingredient.h
-// One ingredient of a recipe (example: "2 cup rice").
+
 
 #ifndef INGREDIENT_H
 #define INGREDIENT_H
@@ -8,9 +8,9 @@
 
 class Ingredient {
 private:
-    std::string name;    // ingredient name (ex: "rice")
-    double amount;       // quantity (ex: 2)
-    std::string unit;    // unit (ex: "cup", "g", "tbsp")
+    std::string name;    
+    double amount;       
+    std::string unit;
 
 public:
     Ingredient();
@@ -21,10 +21,10 @@ public:
     double getAmount() const;
     std::string getUnit() const;
 
-    // setter (used when a recipe is scaled)
+    // setter 
     void setAmount(double amount);
 
-    // print this ingredient on the screen (ex: "2 cup rice")
+    // print ingredient
     void display() const;
 };
 
