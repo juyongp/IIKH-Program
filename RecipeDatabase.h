@@ -39,7 +39,7 @@ public:
     // ----- user interaction -----
     void browse();              // show recipes and let the user look at them
     void editRecipe();          // let the user choose a recipe and edit/annotate it
-    Recipe* selectRecipe();     // let the user choose one recipe (used by Meal), nullptr if canceled
+    Recipe* selectRecipe();     // let the user choose one recipe (used by editRecipe), nullptr if canceled
     void displayAll() const;    // show the list of all recipes
 };
 

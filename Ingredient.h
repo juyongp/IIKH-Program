@@ -21,7 +21,7 @@ public:
     double getAmount() const;
     std::string getUnit() const;
 
-    // setter (used when a recipe is scaled or grocery items are merged)
+    // setter (used when a recipe is scaled)
     void setAmount(double amount);
 
     // print this ingredient on the screen (ex: "2 cup rice")

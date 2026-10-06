@@ -1,13 +1,12 @@
 // Utility.h
 // Small helper functions used by several classes:
-// keyboard input, text, grocery list and recipe list printing.
+// keyboard input, text and recipe list printing.
 
 #ifndef UTILITY_H
 #define UTILITY_H
 
 #include <string>
 #include <vector>
-#include "Ingredient.h"
 #include "Recipe.h"
 
 // ----- keyboard input -----
@@ -18,15 +17,10 @@ std::string readLine(const std::string& prompt);            // one line of text 
 bool readYesNo(const std::string& prompt);                  // y -> true, n -> false
 
 // ----- text -----
-std::string toLower(const std::string& text);               // "Salmon" -> "salmon"
-
-// ----- grocery list -----
-// adds an item; if the same item (same name and unit) is already there, adds the amounts
-void addToGroceryList(std::vector<Ingredient>& list, const Ingredient& item);
-void printIngredientList(const std::vector<Ingredient>& list);
+std::string toLower(const std::string& text);               // "Omurice" -> "omurice"
 
 // ----- recipe list -----
-void printRecipeList(const std::vector<Recipe>& list);   // "1. Salmon with dill  (25 min, 2 servings)"
+void printRecipeList(const std::vector<Recipe>& list);   // "1. Shrimp cream pasta  (25 min, 2 servings)"
 void viewRecipe(const Recipe& recipe);                    // show a recipe, then offer to print it
 
 #endif

@@ -87,30 +87,6 @@ string toLower(const string& text) {
     return result;
 }
 
-void addToGroceryList(vector<Ingredient>& list, const Ingredient& item) {
-    for (size_t i = 0; i < list.size(); i++) {
-        bool sameName = toLower(list[i].getName()) == toLower(item.getName());
-        bool sameUnit = toLower(list[i].getUnit()) == toLower(item.getUnit());
-        if (sameName && sameUnit) {
-            list[i].setAmount(list[i].getAmount() + item.getAmount());
-            return;
-        }
-    }
-    list.push_back(item);
-}
-
-void printIngredientList(const vector<Ingredient>& list) {
-    if (list.empty()) {
-        cout << "  (nothing)" << endl;
-        return;
-    }
-    for (size_t i = 0; i < list.size(); i++) {
-        cout << "  [ ] ";
-        list[i].display();
-        cout << endl;
-    }
-}
-
 void printRecipeList(const vector<Recipe>& list) {
     for (size_t i = 0; i < list.size(); i++) {
         cout << "  " << (i + 1) << ". " << list[i].getName()

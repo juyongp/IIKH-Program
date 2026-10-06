@@ -55,9 +55,8 @@ static void sortRecipes(RecipeDatabase* database) {
     database->displayAll();
 }
 
-Greeter::Greeter(RecipeDatabase* database, PlanManager* planManager) {
+Greeter::Greeter(RecipeDatabase* database) {
     this->database = database;
-    this->planManager = planManager;
 }
 
 void Greeter::showWelcome() const {
@@ -75,8 +74,6 @@ void Greeter::showMenu() const {
     cout << "  3. Sort recipes" << endl;
     cout << "  4. Add a new recipe" << endl;
     cout << "  5. Edit or annotate a recipe" << endl;
-    cout << "  6. Review the meal plan" << endl;
-    cout << "  7. Create a new meal plan" << endl;
     cout << "  0. Quit" << endl;
 }
 
@@ -84,7 +81,7 @@ void Greeter::run() {
     showWelcome();
     while (true) {
         showMenu();
-        int choice = readInt("Select: ", 0, 7);
+        int choice = readInt("Select: ", 0, 5);
         if (choice == 0) {
             break;
         }
@@ -95,13 +92,6 @@ void Greeter::run() {
         case 3: sortRecipes(database); break;
         case 4: database->addNewRecipe(); break;
         case 5: database->editRecipe(); break;
-        case 6: planManager->editPlan(*database); break;
-        case 7:
-            planManager->createPlan();
-            if (!planManager->isEmpty() && readYesNo("Add meals to the plan now?")) {
-                planManager->editPlan(*database);
-            }
-            break;
         }
     }
     cout << "Goodbye!" << endl;

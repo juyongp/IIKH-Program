@@ -60,7 +60,7 @@ void Recipe::addStep(const string& step) {
 bool Recipe::hasIngredient(const string& ingredientName) const {
     string wanted = toLower(ingredientName);
     for (size_t i = 0; i < ingredients.size(); i++) {
-        // "dill" also matches "dill-weed"
+        // "tuna" also matches "canned tuna"
         if (toLower(ingredients[i].getName()).find(wanted) != string::npos) {
             return true;
         }

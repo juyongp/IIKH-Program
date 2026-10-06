@@ -16,7 +16,7 @@
 
 class Recipe {
 private:
-    std::string name;                     // recipe name (ex: "Salmon with dill")
+    std::string name;                     // recipe name (ex: "Shrimp cream pasta")
     int servings;                         // number of people this recipe is written for
     int preparationTime;                      // expected preparation time in minutes (for the original servings)
     std::vector<Ingredient> ingredients;  // list of ingredients
