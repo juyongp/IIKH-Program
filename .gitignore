@@ -1,0 +1,27 @@
+# ===== Build outputs =====
+main
+iikh
+*.exe
+*.out
+*.o
+*.obj
+*.dSYM/
+
+# ===== Visual Studio =====
+.vs/
+x64/
+x86/
+Debug/
+Release/
+*.user
+*.suo
+*.pdb
+*.ilk
+
+# ===== Editor settings (personal) =====
+.vscode/
+.idea/
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
