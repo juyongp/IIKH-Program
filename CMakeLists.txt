@@ -6,11 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(KitchenHelper
     main.cpp
-    Date.cpp
     Greeter.cpp
     Ingredient.cpp
-    Meal.cpp
-    PlanManager.cpp
     Recipe.cpp
     RecipeDatabase.cpp
     Utility.cpp

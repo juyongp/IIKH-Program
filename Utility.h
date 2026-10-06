@@ -6,6 +6,7 @@
 
 #include <string>
 #include <vector>
+#include "Ingredient.h"
 #include "Recipe.h"
 
 
@@ -16,6 +17,11 @@ bool readYesNo(const std::string& prompt);
 
 // ----- text -----
 std::string toLower(const std::string& text);               
+
+// ----- grocery list -----
+// adds an item; if the same item (same name and unit) is already there, adds the amounts
+void addToGroceryList(std::vector<Ingredient>& list, const Ingredient& item);
+void printIngredientList(const std::vector<Ingredient>& list);
 
 // ----- recipe list -----
 void printRecipeList(const std::vector<Recipe>& list);  

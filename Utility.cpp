@@ -86,18 +86,39 @@ string toLower(const string& text) {
     return result;
 }
 
+void addToGroceryList(vector<Ingredient>& list, const Ingredient& item) {
+    for (size_t i = 0; i < list.size(); i++) {
+        bool sameName = toLower(list[i].getName()) == toLower(item.getName());
+        bool sameUnit = toLower(list[i].getUnit()) == toLower(item.getUnit());
+        if (sameName && sameUnit) {
+            list[i].setAmount(list[i].getAmount() + item.getAmount());
+            return;
+        }
+    }
+    list.push_back(item);
+}
+
+void printIngredientList(const vector<Ingredient>& list) {
+    if (list.empty()) {
+        cout << "  (nothing)" << endl;
+        return;
+    }
+    for (size_t i = 0; i < list.size(); i++) {
+        cout << "  [ ] ";
+        list[i].display();
+        cout << endl;
+    }
+}
+
 void printRecipeList(const vector<Recipe>& list) {
     for (size_t i = 0; i < list.size(); i++) {
         cout << "  " << (i + 1) << ". " << list[i].getName()
-             << "  (" << list[i].getPreparationTime() << " min, "
-             << list[i].getServings()
-             << (list[i].getServings() == 1 ? " serving)" : " servings)") << endl;
+             << "  (" << list[i].getPreparationTime() << " min)" << endl;
     }
 }
 
 void viewRecipe(const Recipe& recipe) {
-    int people = readInt("How many people? (original: " + to_string(recipe.getServings())
-                         + ", 0 = cancel): ", 0, 100);
+    int people = readInt("How many people? (0 = cancel): ", 0, 100);
     if (people == 0) {
         return;
     }

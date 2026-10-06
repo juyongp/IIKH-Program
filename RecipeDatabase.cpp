@@ -42,26 +42,24 @@ void RecipeDatabase::addNewRecipe() {
     int preparationTime = readInt("Preparation time (min): ", 0, 1000);
     Recipe recipe(name, servings, preparationTime);
 
-    cout << "Enter the ingredients (empty name = finish)." << endl;
-    while (true) {
-        string ingredientName = readLine("  Ingredient name: ");
-        if (ingredientName == "") {
-            break;
+    int numberOfIngredients = readInt("Number of ingredients (1-30): ", 1, 30);
+    for (int i = 1; i <= numberOfIngredients; i++) {
+        string ingredientName = "";
+        while (ingredientName == "" && cin) {
+            ingredientName = readLine("  Ingredient " + to_string(i) + " name: ");
         }
         double amount = readDouble("  Amount: ");
         string unit = readLine("  Unit (ex: g, cup, tbsp / Enter for none): ");
         recipe.addIngredient(Ingredient(ingredientName, amount, unit));
     }
 
-    cout << "Enter the cooking steps (empty line = finish)." << endl;
-    int stepNumber = 1;
-    while (true) {
-        string step = readLine("  Step " + to_string(stepNumber) + ": ");
-        if (step == "") {
-            break;
+    int numberOfSteps = readInt("Number of cooking steps (1-30): ", 1, 30);
+    for (int i = 1; i <= numberOfSteps; i++) {
+        string step = "";
+        while (step == "" && cin) {
+            step = readLine("  Step " + to_string(i) + ": ");
         }
         recipe.addStep(step);
-        stepNumber++;
     }
 
     recipe.setAnnotation(readLine("Note (Enter to skip): "));

@@ -4,13 +4,15 @@
 #define GREETER_H
 
 #include "RecipeDatabase.h"
+#include "PlanManager.h"
 
 class Greeter {
 private:
     RecipeDatabase* database;
+    PlanManager* planManager;
 
 public:
-    Greeter(RecipeDatabase* database);
+    Greeter(RecipeDatabase* database, PlanManager* planManager);
 
     void showWelcome() const;   
     void showMenu() const;         

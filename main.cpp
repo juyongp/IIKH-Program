@@ -73,7 +73,8 @@ int main() {
     RecipeDatabase database;
     addSampleRecipes(database);
 
-    Greeter greeter(&database);
+    PlanManager planManager;
+    Greeter greeter(&database, &planManager);
     greeter.run();
     return 0;
 }
