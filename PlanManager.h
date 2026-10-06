@@ -1,6 +1,6 @@
 // PlanManager.h
 // Plan Manager (Planner) component
-// Responsibilities (Lecture 3, "The Planner Component"):
+// Responsibilities:
 //   - permits the user to select a sequence of dates for planning
 //   - permits the user to edit an existing plan
 //   - works with Date objects
@@ -15,7 +15,7 @@
 
 class PlanManager {
 private:
-    std::vector<Date> dates;   // the plan: a sequence of dates
+    std::vector<Date> dates;   // a sequence of dates
 
 public:
     void createPlan();                        // ask a start date and number of days, then make the dates

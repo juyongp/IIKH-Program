@@ -1,9 +1,9 @@
 // Date.h
 // Date component
-// Responsibilities (Lecture 3, "The Date Component"):
+// Responsibilities:
 //   - holds the meals planned for one day
 //   - user can edit specific meals
-//   - user can annotate information about the date ("Bob's Birthday", ...)
+//   - user can annotate information about the date 
 //   - can print out the grocery list for all meals of the day
 
 #ifndef DATE_H
