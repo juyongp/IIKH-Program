@@ -9,19 +9,22 @@ Recipe::Recipe() {
     name = "";
     servings = 1;
     preparationTime = 0;
+    calories = 0;
     annotation = "";
 }
 
-Recipe::Recipe(const string& name, int servings, int preparationTime) {
+Recipe::Recipe(const string& name, int servings, int preparationTime, int calories) {
     this->name = name;
     this->servings = (servings > 0) ? servings : 1;
     this->preparationTime = (preparationTime >= 0) ? preparationTime : 0;
+    this->calories = (calories >= 0) ? calories : 0;
     annotation = "";
 }
 
 string Recipe::getName() const { return name; }
 int Recipe::getServings() const { return servings; }
 int Recipe::getPreparationTime() const { return preparationTime; }
+int Recipe::getCalories() const { return calories; }
 
 void Recipe::setName(const string& name) { this->name = name; }
 
@@ -34,6 +37,12 @@ void Recipe::setServings(int servings) {
 void Recipe::setPreparationTime(int preparationTime) {
     if (preparationTime >= 0) {
         this->preparationTime = preparationTime;
+    }
+}
+
+void Recipe::setCalories(int calories) {
+    if (calories >= 0) {
+        this->calories = calories;
     }
 }
 
@@ -87,12 +96,13 @@ void Recipe::edit() {
         cout << "  1. Change name" << endl;
         cout << "  2. Change servings" << endl;
         cout << "  3. Change preparation time" << endl;
-        cout << "  4. Add an ingredient" << endl;
-        cout << "  5. Remove an ingredient" << endl;
-        cout << "  6. Add a cooking step" << endl;
-        cout << "  7. Write a note (annotate)" << endl;
+        cout << "  4. Change calories" << endl;
+        cout << "  5. Add an ingredient" << endl;
+        cout << "  6. Remove an ingredient" << endl;
+        cout << "  7. Add a cooking step" << endl;
+        cout << "  8. Write a note (annotate)" << endl;
         cout << "  0. Done" << endl;
-        int choice = readInt("Select: ", 0, 7);
+        int choice = readInt("Select: ", 0, 8);
 
         if (choice == 0) {
             break;
@@ -110,6 +120,9 @@ void Recipe::edit() {
             setPreparationTime(readInt("New preparation time (min): ", 0, 1000));
         }
         else if (choice == 4) {
+            setCalories(readInt("New calories per serving (kcal, 0 = unknown): ", 0, 5000));
+        }
+        else if (choice == 5) {
             string ingredientName = readLine("Ingredient name: ");
             if (ingredientName != "") {
                 double amount = readDouble("Amount: ");
@@ -117,7 +130,7 @@ void Recipe::edit() {
                 addIngredient(Ingredient(ingredientName, amount, unit));
             }
         }
-        else if (choice == 5) {
+        else if (choice == 6) {
             if (ingredients.empty()) {
                 cout << "There are no ingredients." << endl;
             } else {
@@ -132,13 +145,13 @@ void Recipe::edit() {
                 }
             }
         }
-        else if (choice == 6) {
+        else if (choice == 7) {
             string step = readLine("New step: ");
             if (step != "") {
                 addStep(step);
             }
         }
-        else if (choice == 7) {
+        else if (choice == 8) {
             setAnnotation(readLine("Note (Enter to clear): "));
         }
     }
@@ -157,6 +170,9 @@ void Recipe::print(int people) const {
         cout << " (for " << servings << (servings == 1 ? " serving)" : " servings)");
     }
     cout << endl;
+    if (calories > 0) {
+        cout << "Calories: about " << calories << " kcal per serving" << endl;
+    }
 
     cout << "Ingredients:" << endl;
     vector<Ingredient> scaled = getScaledIngredients(people);

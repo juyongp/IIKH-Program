@@ -27,7 +27,7 @@ void addToGroceryList(std::vector<Ingredient>& list, const Ingredient& item);
 void printIngredientList(const std::vector<Ingredient>& list);   // print as a checklist
 
 // recipe list
-void printRecipeList(const std::vector<Recipe>& list);   // numbered list of names and preparation times
+void printRecipeList(const std::vector<Recipe>& list);   // numbered list of names, preparation times and calories
 void viewRecipe(const Recipe& recipe);                    // ask the number of people and print the scaled recipe
 
 #endif

@@ -11,4 +11,8 @@ add_executable(KitchenHelper
     Recipe.cpp
     RecipeDatabase.cpp
     Utility.cpp
+    Meal.cpp
+    Date.cpp
+    PlanManager.cpp
+    RecipeRecommender.cpp
 )

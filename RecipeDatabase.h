@@ -30,6 +30,7 @@ public:
     Recipe* findRecipe(const std::string& name);   // exact name, nullptr if not found
     std::vector<Recipe> searchByName(const std::string& keyword) const;          // names containing the keyword
     std::vector<Recipe> searchByIngredient(const std::string& ingredient) const; // recipes that use the ingredient
+    std::vector<Recipe> getAllRecipes() const;     // copy of every recipe
 
     // sorting
     void sortByName();              // alphabetical order

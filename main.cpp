@@ -5,17 +5,32 @@
 
 // puts a few recipes into the database
 void addSampleRecipes(RecipeDatabase& database) {
-    Recipe friedRice("Kimchi fried rice", 1, 10);
-    friedRice.addIngredient(Ingredient("rice", 1, "bowl"));
-    friedRice.addIngredient(Ingredient("kimchi", 100, "g"));
-    friedRice.addIngredient(Ingredient("egg", 1, ""));
-    friedRice.addIngredient(Ingredient("sesame oil", 1, "tsp"));
-    friedRice.addStep("Fry the kimchi until it is nicely cooked.");
-    friedRice.addStep("Add the rice and fry together.");
-    friedRice.addStep("Top with a fried egg and sesame oil.");
-    database.addRecipe(friedRice);
+    Recipe salad("Green vegetable salad", 1, 10, 150);
+    salad.addIngredient(Ingredient("lettuce", 100, "g"));
+    salad.addIngredient(Ingredient("cucumber", 0.5, ""));
+    salad.addIngredient(Ingredient("cherry tomato", 6, ""));
+    salad.addIngredient(Ingredient("paprika", 0.5, ""));
+    salad.addIngredient(Ingredient("olive oil", 1, "tsp"));
+    salad.addIngredient(Ingredient("balsamic vinegar", 1, "tbsp"));
+    salad.addStep("Wash the vegetables and drain the water.");
+    salad.addStep("Tear the lettuce and cut the cucumber, tomatoes and paprika into bite-size pieces.");
+    salad.addStep("Mix the olive oil and balsamic vinegar, then pour it over the vegetables.");
+    database.addRecipe(salad);
 
-    Recipe omurice("Omurice", 1, 20);
+    Recipe tofuStirFry("Tofu vegetable stir-fry", 2, 20, 280);
+    tofuStirFry.addIngredient(Ingredient("tofu", 300, "g"));
+    tofuStirFry.addIngredient(Ingredient("broccoli", 100, "g"));
+    tofuStirFry.addIngredient(Ingredient("carrot", 0.5, ""));
+    tofuStirFry.addIngredient(Ingredient("zucchini", 0.5, ""));
+    tofuStirFry.addIngredient(Ingredient("garlic", 2, "clove"));
+    tofuStirFry.addIngredient(Ingredient("soy sauce", 1, "tbsp"));
+    tofuStirFry.addStep("Cut the tofu and vegetables into bite-size pieces.");
+    tofuStirFry.addStep("Fry the tofu until it is golden, then take it out.");
+    tofuStirFry.addStep("Fry the garlic and vegetables until they are just soft.");
+    tofuStirFry.addStep("Put the tofu back in, add the soy sauce and mix well.");
+    database.addRecipe(tofuStirFry);
+
+    Recipe omurice("Omurice", 1, 20, 700);
     omurice.addIngredient(Ingredient("rice", 1, "bowl"));
     omurice.addIngredient(Ingredient("egg", 2, ""));
     omurice.addIngredient(Ingredient("onion", 0.5, ""));
@@ -26,7 +41,7 @@ void addSampleRecipes(RecipeDatabase& database) {
     omurice.addStep("Put the rice on the omelet and fold it over.");
     database.addRecipe(omurice);
 
-    Recipe shrimpPasta("Shrimp cream pasta", 2, 25);
+    Recipe shrimpPasta("Shrimp cream pasta", 2, 25, 800);
     shrimpPasta.addIngredient(Ingredient("spaghetti", 200, "g"));
     shrimpPasta.addIngredient(Ingredient("shrimp", 200, "g"));
     shrimpPasta.addIngredient(Ingredient("heavy cream", 1, "cup"));
@@ -38,7 +53,7 @@ void addSampleRecipes(RecipeDatabase& database) {
     shrimpPasta.addStep("Pour in the cream and cheese, then mix with the spaghetti.");
     database.addRecipe(shrimpPasta);
 
-    Recipe curry("Chicken curry", 4, 40);
+    Recipe curry("Chicken curry", 4, 40, 600);
     curry.addIngredient(Ingredient("chicken", 500, "g"));
     curry.addIngredient(Ingredient("potato", 2, ""));
     curry.addIngredient(Ingredient("carrot", 1, ""));
@@ -53,7 +68,7 @@ void addSampleRecipes(RecipeDatabase& database) {
     curry.addStep("Serve over rice.");
     database.addRecipe(curry);
 
-    Recipe kimbap("Tuna kimbap", 2, 30);
+    Recipe kimbap("Tuna kimbap", 2, 30, 450);
     kimbap.addIngredient(Ingredient("rice", 2, "bowl"));
     kimbap.addIngredient(Ingredient("dried seaweed", 2, "sheet"));
     kimbap.addIngredient(Ingredient("canned tuna", 1, "can"));

@@ -23,18 +23,24 @@ private:
     std::vector<Meal> meals;               // meals planned for this day
     std::vector<std::string> annotations;  // notes about this day
 
+    int chooseMeal() const;   // let the user pick a meal, -1 if cancelled or there are none
+
 public:
     Date();
-    Date(int year, int month, int day);
+    Date(int year, int month, int day);   // an invalid date becomes 2000-01-01
+
+    static bool isValid(int year, int month, int day);
+    static int daysInMonth(int year, int month);
 
     // getters
     int getYear() const;
     int getMonth() const;
     int getDay() const;
     std::string toString() const;   // ex: "2026-09-23"
+    Date nextDay() const;           // the following day (with no meals or notes)
 
     // meals
-    void addMeal(const Meal& meal);
+    void addMeal(const Meal& meal);            // kept in breakfast, lunch, dinner order
     void editMeal(RecipeDatabase& database);   // let the user choose a meal and edit it
 
     // annotations

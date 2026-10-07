@@ -113,7 +113,11 @@ void printIngredientList(const vector<Ingredient>& list) {
 void printRecipeList(const vector<Recipe>& list) {
     for (size_t i = 0; i < list.size(); i++) {
         cout << "  " << (i + 1) << ". " << list[i].getName()
-             << "  (" << list[i].getPreparationTime() << " min)" << endl;
+             << "  (" << list[i].getPreparationTime() << " min";
+        if (list[i].getCalories() > 0) {
+            cout << ", " << list[i].getCalories() << " kcal";
+        }
+        cout << ")" << endl;
     }
 }
 

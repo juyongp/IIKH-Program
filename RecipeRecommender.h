@@ -20,6 +20,8 @@ private:
     double weight;   // kg
 
 public:
+    RecipeRecommender();
+
     void readUserInfo();             // ask the height and weight
     double calculateBMI() const;     // weight(kg) / height(m)^2
     bool isHighBMI() const;          // true if low-calorie dishes should be recommended

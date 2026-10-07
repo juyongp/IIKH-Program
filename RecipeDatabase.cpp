@@ -40,7 +40,8 @@ void RecipeDatabase::addNewRecipe() {
     }
     int servings = readInt("Servings (number of people): ", 1, 100);
     int preparationTime = readInt("Preparation time (min): ", 0, 1000);
-    Recipe recipe(name, servings, preparationTime);
+    int calories = readInt("Calories per serving (kcal, 0 = unknown): ", 0, 5000);
+    Recipe recipe(name, servings, preparationTime, calories);
 
     int numberOfIngredients = readInt("Number of ingredients (1-30): ", 1, 30);
     for (int i = 1; i <= numberOfIngredients; i++) {
@@ -104,6 +105,10 @@ vector<Recipe> RecipeDatabase::searchByIngredient(const string& ingredient) cons
         }
     }
     return result;
+}
+
+vector<Recipe> RecipeDatabase::getAllRecipes() const {
+    return recipes;
 }
 
 void RecipeDatabase::sortByName() {

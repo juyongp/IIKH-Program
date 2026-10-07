@@ -1,6 +1,7 @@
 // Greeter.cpp
 
 #include "Greeter.h"
+#include "RecipeRecommender.h"
 #include "Utility.h"
 #include <iostream>
 using namespace std;
@@ -96,13 +97,16 @@ void Greeter::run() {
         case 3: sortRecipes(database); break;
         case 4: database->addNewRecipe(); break;
         case 5: database->editRecipe(); break;
-        case 6:
+        case 6: planManager->editPlan(*database); break;
         case 7:
-            cout << "Meal planning is not available yet." << endl;
+            planManager->createPlan();
+            planManager->editPlan(*database);
             break;
-        case 8:
-            cout << "BMI recommendation is not available yet." << endl;
+        case 8: {
+            RecipeRecommender recommender;
+            recommender.recommend(*database);
             break;
+        }
         }
     }
     cout << "Goodbye!" << endl;
