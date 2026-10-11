@@ -135,7 +135,7 @@ void Date::edit(RecipeDatabase& database) {
     while (true) {
         cout << endl;
         display();
-        cout << "--- Edit " << toString() << " ---" << endl;
+        cout << "--- Meal plan for " << toString() << " ---" << endl;
         cout << "  1. Add a meal" << endl;
         cout << "  2. Edit a meal" << endl;
         cout << "  3. Remove a meal" << endl;

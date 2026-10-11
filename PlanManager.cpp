@@ -34,7 +34,7 @@ void PlanManager::editPlan(RecipeDatabase& database) {
         cout << endl << "--- Meal plan (" << dates.front().toString() << " ~ "
              << dates.back().toString() << ") ---" << endl;
         cout << "  1. Show the menus for the whole period" << endl;
-        cout << "  2. Edit a date (meals and notes)" << endl;
+        cout << "  2. Plan meals for a date (add/edit meals, notes)" << endl;
         cout << "  3. Print the grocery list for the whole period" << endl;
         cout << "  0. Back" << endl;
         int choice = readInt("Select: ", 0, 3);
@@ -49,7 +49,7 @@ void PlanManager::editPlan(RecipeDatabase& database) {
             for (size_t i = 0; i < dates.size(); i++) {
                 cout << "  " << (i + 1) << ". " << dates[i].toString() << endl;
             }
-            int number = readInt("Date number (0 = cancel): ", 0, (int)dates.size());
+            int number = readInt("Which date? (0 = cancel): ", 0, (int)dates.size());
             if (number > 0) {
                 dates[number - 1].edit(database);
             }
