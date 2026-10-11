@@ -29,6 +29,7 @@ static void searchRecipes(RecipeDatabase* database) {
     cout << results.size() << " recipe(s) found." << endl;
 
     while (!results.empty()) {
+        cout << endl << "--- Search results ---" << endl;
         printRecipeList(results);
         int number = readInt("Recipe number to view (0 = back): ", 0, (int)results.size());
         if (number == 0) {
